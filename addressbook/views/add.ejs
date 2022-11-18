@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./inc/head')%>
+</head>
+<body>
+    <%-include('./inc/nav')%>
+    <section>
+        <form action="/edit/add" method="post">      
+            <input type="text" name="firstname" placeholder="Enter a Name" required>
+            <input type="text" name="lastname" placeholder="Enter a Surname" required>
+            <input type="text" name="address" placeholder="Enter an Address" required>
+            <input type="text" name="number" placeholder="Enter a Phone Number" required>
+            <input type="text" name="email" placeholder="Enter a Mail Address" required>
+            <input type="submit" value="Save">
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./inc/head')%>
+</head>
+<body>
+    <%-include('./inc/nav')%>
+    <section>
+        <h1> Contacts List </h1>
+            <ul>
+                <% contacts.forEach(contact => { %>
+                <li>
+                    <a href="/detailcontacts/<%=contact._id%>"><%=contact.firstname%></a>
+                </li>
+                <% }) %>
+            </ul>
+    </section>
+</body>
+</html>

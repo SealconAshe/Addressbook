@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./inc/head')%>
+</head>
+<body>
+    <%-include('./inc/nav')%>
+    <section>
+        <a style="font-size:200%;" href="/edit/add">Add New Contact</a>
+        <h1> Contacts List </h1>
+            <ul>
+                <% contacts.forEach(contact => { %>
+                <li>
+                    <p><%=contact.firstname%></p>
+                    <a style="text-align:center;" class="del" data-doc="<%=contact._id%>"><b>Delete</b></a>
+                    <p></p>
+                    <a class="upd" data-doc="<%=contact._id%>" href ="/edit/update">Update</a>
+                </li>
+                <% }) %>
+            </ul>
+    </section>
+    <script>
+        const del = document.querySelectorAll('a.del')
+        const delLinks = [].slice.call(del)
+        delLinks.forEach((item, i) => {
+            item.addEventListener('click', (e) => {
+            const endpoint = `/edit/delete/${item.dataset.doc}`
+        fetch(endpoint, {
+            method: 'DELETE'
+        }) 
+        .then((response) => response.json())
+        .then((data) => window.location.href = data.link)
+        .cathc((err) => {
+            console.log(err)
+        })    
+        
+        })
+        })
+
+        const upd = document.querySelectorAll('a.upd')
+        const updLinks = [].slice.call(upd)
+        updLinks.forEach((item, i) => {
+            item.addEventListener('click', (e) => {
+            const endpoint = `/edit/update/${item.dataset.doc}`
+        fetch(endpoint, {
+            method: 'PATCH'
+        }) 
+        .then((response) => response.json())
+        
+        .cathc((err) => {
+            console.log(err)
+        })    
+        
+        })
+        })
+    </script>
+</body>
+</html>
