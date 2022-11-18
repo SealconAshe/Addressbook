@@ -12,7 +12,3 @@ npm start
 
 ```
 
-### Screenshots
-
-![Main]()
-![Edit]()
